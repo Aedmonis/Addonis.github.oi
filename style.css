@@ -1,0 +1,850 @@
+/*
+====================================================
+ PROYECTO 3 — CAFETERÍA ESCOLAR
+
+ Sistema de Pedidos
+
+ Autor:
+ Adonis Mauricio Guzmán Henríquez
+
+ INCOA
+ 1TB Software · Código 13
+
+ Año: 2026
+
+ DERECHOS DE AUTOR:
+ Proyecto desarrollado con fines educativos.
+====================================================
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: 'DM Sans', sans-serif;
+
+    min-height: 100vh;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #633c1d,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 90% 80%,
+            #392014,
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #0c0806,
+            #1d120d,
+            #0c0907
+        );
+}
+
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.encabezado {
+
+    text-align: center;
+
+    padding: 45px 20px 35px;
+}
+
+
+.logo {
+
+    font-size: 60px;
+
+    margin-bottom: 10px;
+}
+
+
+.mini-titulo {
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: #e2ad70;
+
+    font-weight: 800;
+}
+
+
+.encabezado h1 {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: clamp(4rem, 10vw, 7rem);
+
+    letter-spacing: 5px;
+
+    line-height: .85;
+
+    margin-top: 10px;
+}
+
+
+.encabezado h1 span {
+
+    font-family: 'Pacifico', cursive;
+
+    font-size: .4em;
+
+    color: #e2a35e;
+}
+
+
+.subtitulo {
+
+    margin-top: 18px;
+
+    color: #b9aaa0;
+
+    font-size: 14px;
+}
+
+
+.linea {
+
+    width: 100px;
+
+    height: 3px;
+
+    margin: 20px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #e3a35e,
+            transparent
+        );
+}
+
+
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.contenedor {
+
+    width: min(1150px, 94%);
+
+    margin: auto auto 50px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 25px;
+}
+
+
+/* =========================================
+   TARJETAS
+========================================= */
+
+.tarjeta,
+.productos {
+
+    padding: 30px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(49, 31, 22, .97),
+            rgba(23, 15, 11, .98)
+        );
+
+    border:
+        1px solid #624737;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, .45);
+}
+
+
+.titulo-seccion {
+
+    display: table;
+
+    margin: 0 auto 15px;
+
+    padding: 8px 14px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(219, 158, 91, .1);
+
+    border:
+        1px solid #755339;
+
+    color: #e6b376;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+h2 {
+
+    text-align: center;
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 38px;
+
+    letter-spacing: 2px;
+
+    color: #f0ce9f;
+
+    margin-bottom: 25px;
+}
+
+
+h3 {
+
+    margin: 25px 0 12px;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 12px;
+
+    color: #d8b48a;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   MENÚ
+========================================= */
+
+.menu-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+
+.producto {
+
+    padding: 16px;
+
+    border-radius: 14px;
+
+    border: 1px solid #4d372b;
+
+    background: #17100d;
+
+    display: grid;
+
+    grid-template-columns: 35px 1fr;
+
+    align-items: center;
+
+    transition: .25s;
+}
+
+
+.producto:hover {
+
+    transform: translateY(-4px);
+
+    border-color: #b77c48;
+
+    background: #21150f;
+}
+
+
+.producto span {
+
+    grid-row: span 2;
+
+    font-size: 25px;
+}
+
+
+.producto strong {
+
+    font-size: 13px;
+}
+
+
+.producto small {
+
+    color: #806e61;
+
+    font-size: 9px;
+}
+
+
+.producto b {
+
+    grid-column: 2;
+
+    margin-top: 5px;
+
+    color: #e4ad6e;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 11px;
+}
+
+
+.bebida {
+
+    border-color: #3c4e4f;
+}
+
+
+.promocion {
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border-radius: 13px;
+
+    text-align: center;
+
+    background:
+        rgba(219, 158, 91, .08);
+
+    color: #bba99c;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.promocion strong {
+
+    display: block;
+
+    color: #efb36c;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 15px;
+}
+
+
+/* =========================================
+   FORMULARIO
+========================================= */
+
+label {
+
+    display: block;
+
+    margin: 15px 0 7px;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    color: #d3c0b0;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+input,
+select {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid #5d4436;
+
+    background: #130d0a;
+
+    color: white;
+
+    font-family: 'DM Sans', sans-serif;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+
+input:focus,
+select:focus {
+
+    border-color: #d59a5b;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(213, 154, 91, .1);
+}
+
+
+.pagos {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+
+.radio {
+
+    margin: 0;
+}
+
+
+.radio input {
+
+    display: none;
+}
+
+
+.radio span {
+
+    display: block;
+
+    text-align: center;
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    border: 1px solid #5d4436;
+
+    color: #a99a90;
+
+    cursor: pointer;
+
+    font-size: 11px;
+}
+
+
+.radio input:checked + span {
+
+    border-color: #d69a5b;
+
+    background:
+        rgba(214, 154, 91, .13);
+
+    color: #efbd82;
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+button {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin-top: 20px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    color: white;
+
+    transition: .25s;
+}
+
+
+button:hover {
+
+    transform: translateY(-3px);
+}
+
+
+.boton-principal {
+
+    background:
+        linear-gradient(
+            90deg,
+            #ae652d,
+            #e1a15d
+        );
+}
+
+
+.boton-guardar {
+
+    background:
+        linear-gradient(
+            90deg,
+            #367b5a,
+            #54a678
+        );
+}
+
+
+.boton-consulta {
+
+    background:
+        linear-gradient(
+            90deg,
+            #62477f,
+            #9164b9
+        );
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.error {
+
+    min-height: 20px;
+
+    margin-top: 13px;
+
+    text-align: center;
+
+    color: #ff9999;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   RESULTADO
+========================================= */
+
+.resultado {
+
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #302015,
+            #1b110d
+        );
+
+    border: 1px solid #8c603d;
+}
+
+
+.resultado-titulo {
+
+    text-align: center;
+
+    color: #efc38d;
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 26px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+
+.dato {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 8px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
+
+    font-size: 12px;
+}
+
+
+.dato strong {
+
+    color: #95877d;
+}
+
+
+.dato span {
+
+    color: white;
+
+    font-weight: 700;
+
+    text-align: right;
+}
+
+
+.total {
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    color: #efb56d;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 27px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   TABLA
+========================================= */
+
+.tabla-contenedor {
+
+    overflow-x: auto;
+
+    margin-top: 20px;
+}
+
+
+table {
+
+    width: 100%;
+
+    min-width: 650px;
+
+    border-collapse: collapse;
+
+    font-size: 11px;
+}
+
+
+th {
+
+    padding: 12px 8px;
+
+    background: #38271e;
+
+    color: #e8b97d;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 8px;
+
+    text-align: left;
+}
+
+
+td {
+
+    padding: 11px 8px;
+
+    border-bottom: 1px solid #3b2b23;
+
+    color: #d7ccc4;
+}
+
+
+tr:hover td {
+
+    background:
+        rgba(214,154,91,.05);
+}
+
+
+/* =========================================
+   RESUMEN
+========================================= */
+
+.resumen {
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    border: 1px solid #745033;
+
+    background:
+        linear-gradient(
+            145deg,
+            #342315,
+            #20140e
+        );
+}
+
+
+.resumen-titulo {
+
+    text-align: center;
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 27px;
+
+    letter-spacing: 2px;
+
+    color: #efc18a;
+
+    margin-bottom: 15px;
+}
+
+
+.resumen p {
+
+    text-align: center;
+
+    line-height: 2;
+
+    font-size: 13px;
+
+    color: #cfc1b7;
+}
+
+
+.ventas {
+
+    display: block;
+
+    text-align: center;
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 31px;
+
+    color: #f0b56d;
+
+    margin: 5px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 25px;
+
+    color: #70655e;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+}
+
+
+footer p:first-child {
+
+    font-family: 'Pacifico', cursive;
+
+    font-size: 17px;
+
+    color: #aa7b4e;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width: 850px) {
+
+    .contenedor {
+
+        grid-template-columns: 1fr;
+
+        max-width: 600px;
+    }
+}
+
+
+@media(max-width: 500px) {
+
+    .encabezado h1 {
+
+        font-size: 4rem;
+    }
+
+    .menu-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .pagos {
+
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta,
+    .productos {
+
+        padding: 21px;
+    }
+}
